@@ -1,7 +1,7 @@
 import numpy as np
 
 # Initialization
-S = 48      # Slots number
+S = 72      # Slots number
 P = 8      # Pole number
 Nph = 3     # Phase number
 
@@ -43,9 +43,10 @@ for i, row in enumerate(Check, start=1):
 
     # 設置底部顏色為綠色
     for col_num, value in enumerate(row_with_index, start=1):
-        cell = worksheet.cell(row=worksheet.max_row, column=col_num)
-        if col_num == len(row_with_index) and value:
-            cell.fill = green_fill
+        cell = worksheet.cell(row=i+1, column=col_num)
+        if value == True:
+            if col_num > 1:
+                cell.fill = green_fill
 
 # 將數據保存到文件中
 workbook.save('Balanced-Motor-Matrix.xlsx')
